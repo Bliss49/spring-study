@@ -14,16 +14,14 @@ public class User {
     @Id
     private String id;
 
-    private String writer;
-
-    private String editor;
-
     private String email;
 
     private boolean status;
 
     private String note;
 
+    private String createdBy;
+    private String updatedBy;
     private LocalDateTime createdAt; // 생성된 시간
     private LocalDateTime updatedAt; // 업데이트 시간
 }
