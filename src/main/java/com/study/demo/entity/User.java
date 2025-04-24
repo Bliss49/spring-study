@@ -3,14 +3,13 @@ package com.study.demo.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Entity
 @Table(name = "user")
-public class User {
+public class User extends BaseTime{
     @Id
     private String id;
 
@@ -22,6 +21,21 @@ public class User {
 
     private String createdBy;
     private String updatedBy;
-    private LocalDateTime createdAt; // 생성된 시간
-    private LocalDateTime updatedAt; // 업데이트 시간
+
+    @Builder
+    public User (
+            String id,
+            String email,
+            boolean status,
+            String note,
+            String createdBy,
+            String updatedBy
+    ) {
+        this.id = id;
+        this.email = email;
+        this.status = status;
+        this.note = note;
+        this.createdBy = createdBy;
+        this.updatedBy = updatedBy;
+    }
 }
